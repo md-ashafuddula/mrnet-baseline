@@ -1,5 +1,5 @@
 # Note
-This is the actual MRNet baseline model, to run this you need to create a new virtual environment and install several python libraries including,
+This is the **actual MRNet baseline model** following [Deep-learning-assisted diagnosis for knee magnetic resonance imaging: Development and retrospective validation of MRNet](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002699) by **Stanford University**, to run this you need to create a new virtual environment and install several python libraries including,
 
 ```
 conda list
