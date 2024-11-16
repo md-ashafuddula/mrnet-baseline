@@ -1,3 +1,17 @@
+# Note
+This is the actual MRNet baseline model, to run this you need to create a new virtual environment and install several python libraries.
+
+### Model Performance Metrics (Experimental)
+
+```
+| Task      | AUC      | Accuracy | Sensitivity | Specificity |
+|-----------|----------|----------|-------------|-------------|
+| ACL       | 0.963    | 0.883    | 0.815       | 0.939       |
+| Meniscus  | 0.849    | 0.750    | 0.769       | 0.735       |
+| Abnormal  | 0.952    | 0.858    | 0.979       | 0.400       |
+
+```
+
 # MRNet replication
 
 This repository reproduces (to some extent) the results proposed in the paper ["Deep-learning-assisted diagnosis for knee magnetic resonance imaging: Development and retrospective validation of MRNet"](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002699) by Bien, Rajpurkar et al.
