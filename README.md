@@ -110,6 +110,29 @@ This repository reproduces (to some extent) the results proposed in the paper ["
 
 Data must be downloaded from MRNet's [official website](https://stanfordmlgroup.github.io/competitions/mrnet/) and put anywhere into your machine. Then, edit the  ``` train_mrnet.sh``` script file by expliciting the full path to ```MRNet-v1.0``` directory into the ```DATA_PATH``` variable.
 
+```
+MRNet-v1.0/
+│── train/                          # Training data  
+│   ├── axial/                      # Axial plane MRI scans (.npy)  
+│   ├── coronal/                    # Coronal plane MRI scans (.npy)  
+│   ├── sagittal/                   # Sagittal plane MRI scans (.npy)  
+│
+│── valid/                          # Validation data  
+│   ├── axial/                      # Axial plane MRI scans (.npy)  
+│   ├── coronal/                    # Coronal plane MRI scans (.npy)  
+│   ├── sagittal/                   # Sagittal plane MRI scans (.npy)
+│
+│── train-acl.csv                   # ACL tear labels (train set)  
+│── train-abnormal.csv              # Abnormality labels (train set)  
+│── train-meniscus.csv              # Meniscus tear labels (train set)  
+│── train.csv                       # Overall train set metadata  
+│── valid_mlabel.csv                # Multi-label classification file  
+│── valid_abnormal.csv              # Abnormality labels (validation set)  
+│── valid_acl.csv                   # ACL tear labels (validation set)  
+│── valid_meniscus.csv              # Meniscus tear labels (validation set)  
+│── valid.csv                       # Overall validation set metadata  
+```
+
 ## Execution
 To perform an experiment just run
 ```
