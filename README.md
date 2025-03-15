@@ -139,6 +139,32 @@ To perform an experiment just run
 bash train_mrnet.sh
 ```
 
+Which contians,
+
+```
+DATE=$(date +"%Y-%m-%d-%H-%M")
+EXPERIMENT="MRNet-${DATE}-MRNet"
+DATA_PATH='/home/C00579118/Dataset-List/MRNet-v1.0/'
+
+EPOCHS=50
+PREFIX=MRNet
+
+python3 train.py -t acl -p sagittal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+python3 train.py -t acl -p coronal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS 
+python3 train.py -t acl -p axial --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS 
+
+python3 train.py -t meniscus -p sagittal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS 
+python3 train.py -t meniscus -p coronal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+python3 train.py -t meniscus -p axial --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+
+python3 train.py -t abnormal -p sagittal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+python3 train.py -t abnormal -p coronal --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+python3 train.py -t abnormal -p axial --experiment $EXPERIMENT --data-path $DATA_PATH --prefix_name $PREFIX --epochs=$EPOCHS
+
+python3 train_logistic_regression.py --path-to-model "experiments/${EXPERIMENT}/models/" --data-path $DATA_PATH 
+```
+
+
 This will train three models for each view (sagittal, axial, coronal) of each task (acl tear recognition, meniscal tear recognition, abnormalities recognition), for a total of 9 models. After that, a logistic regression model is trained, for each task, to combine the predictions of the different view models.
 All checkpoints, training and validation logs, and results will be saved inside the ```experiment``` folder (it will be created if it doesn't exists).
  
