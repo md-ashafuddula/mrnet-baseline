@@ -126,13 +126,13 @@ abnormal Confusion Matrix: TN=11, FP=14, FN=2, TP=93
 
 ### Training time
 
-1. The final training results show very good performance with a training loss of 0.0826 and training AUC of 0.9586
+1. The final training results show very good performance with a training loss of 0.0883 and training AUC of 0.9527
 
-2. The validation metrics show a loss of 0.1306 and AUC of 0.9486
+2. The validation metrics show a loss of 0.1107 and AUC of 0.9507
 
-``training took 2735.72 s or 46 mins``
+``training took total 22420.11 sec or 373.67 mins``
 
-3. The learning rate at the end of training was very small (8.1e-8), indicating the optimization process was nearly complete.
+3. The learning rate at the end of training was very small (9e-07), indicating the optimization process was nearly complete.
 
 # MRNet replication
 
