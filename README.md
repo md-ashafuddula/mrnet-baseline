@@ -91,7 +91,7 @@ zipp                      3.21.0             pyhd8ed1ab_0    conda-forge
 zlib                      1.2.13               h5eee18b_1
 ```
 
-### Model Performance Metrics (Experimental)
+### Model Performance Metrics (Experiment with 50 epochs)
 
 
 ## Model Performance Metrics
@@ -109,7 +109,7 @@ meniscus Confusion Matrix: TN=50, FP=18, FN=10, TP=42
 abnormal Confusion Matrix: TN=11, FP=14, FN=2, TP=93
 ```
 
-**Specificity: 0.400 - Poor ability to identify normal cases**
+**Specificity: 0.4400 - Poor ability to identify normal cases**
 
 
 ## Model Performance Averages
