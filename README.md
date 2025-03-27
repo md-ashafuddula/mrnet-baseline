@@ -93,16 +93,36 @@ zlib                      1.2.13               h5eee18b_1
 
 ### Model Performance Metrics (Experimental)
 
-```
-| Task      | AUC      | Accuracy | Sensitivity | Specificity |
-|-----------|----------|----------|-------------|-------------|
-| ACL       | 0.963    | 0.883    | 0.815       | 0.939       |
-| Meniscus  | 0.849    | 0.750    | 0.769       | 0.735       |
-| Abnormal  | 0.952    | 0.858    | 0.979       | 0.400       |
 
+## Model Performance Metrics
+
+| Metric                        | AUC    | Accuracy | Sensitivity (Recall) | Specificity | Precision | F1-Score |
+|--------------------------------|--------|----------|----------------------|-------------|-----------|----------|
+| **Abnormal**                   | 0.9465 | 0.8667   | 0.9789               | 0.4400      | 0.8692    | 0.9208   |
+| **Meniscus**                   | 0.8470 | 0.7667   | 0.8077               | 0.7353      | 0.7000    | 0.7500   |
+| **ACL**                        | 0.9660 | 0.8750   | 0.7963               | 0.9394      | 0.9149    | 0.8515   |
+
+
+```
+acl Confusion Matrix: TN=62, FP=4, FN=11, TP=43
+meniscus Confusion Matrix: TN=50, FP=18, FN=10, TP=42
+abnormal Confusion Matrix: TN=11, FP=14, FN=2, TP=93
 ```
 
 **Specificity: 0.400 - Poor ability to identify normal cases**
+
+
+## Model Performance Averages
+
+| Metric                         | Average Value|
+|--------------------------------|--------------|
+| **AUC**                        | 0.9199       |
+| **Accuracy**                   | 0.8361       |
+| **Sensitivity (Recall)**       | 0.8610       |
+| **Specificity**                | 0.7049       |
+| **Precision**                  | 0.8280       |
+| **F1-Score**                   | 0.8408       |
+
 
 ### Training time
 
