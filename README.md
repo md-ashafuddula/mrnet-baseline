@@ -142,29 +142,94 @@ This repository reproduces (to some extent) the results proposed in the paper ["
 
 Data must be downloaded from MRNet's [official website](https://stanfordmlgroup.github.io/competitions/mrnet/) and put anywhere into your machine. Then, edit the  ``` train_mrnet.sh``` script file by expliciting the full path to ```MRNet-v1.0``` directory into the ```DATA_PATH``` variable.
 
+# MRNet Dataset
+
+This repository contains code for working with the MRNet dataset, a collection of knee MRI scans used for detecting abnormalities.
+
+## Dataset Structure
+
+The MRNet dataset is organized as follows:
+
 ```
 MRNet-v1.0/
-│── train/                          # Training data  
-│   ├── axial/                      # Axial plane MRI scans (.npy)  
-│   ├── coronal/                    # Coronal plane MRI scans (.npy)  
-│   ├── sagittal/                   # Sagittal plane MRI scans (.npy)  
+│── train/               # Training data
+│   ├── axial/           # Axial plane MRI scans (.npy)
+│   ├── coronal/         # Coronal plane MRI scans (.npy)
+│   └── sagittal/        # Sagittal plane MRI scans (.npy)
 │
-│── valid/                          # Validation data  
-│   ├── axial/                      # Axial plane MRI scans (.npy)  
-│   ├── coronal/                    # Coronal plane MRI scans (.npy)  
-│   ├── sagittal/                   # Sagittal plane MRI scans (.npy)
+│── valid/               # Validation data
+│   ├── axial/           # Axial plane MRI scans (.npy)
+│   ├── coronal/         # Coronal plane MRI scans (.npy)
+│   └── sagittal/        # Sagittal plane MRI scans (.npy)
 │
-│── train-acl.csv                   # ACL tear labels (train set)  
-│── train-abnormal.csv              # Abnormality labels (train set)  
-│── train-meniscus.csv              # Meniscus tear labels (train set)  
-│── train.csv                       # Overall train set metadata  
-│── valid_mlabel.csv                # Multi-label classification file  
-│── valid_abnormal.csv              # Abnormality labels (validation set)  
-│── valid_acl.csv                   # ACL tear labels (validation set)  
-│── valid_meniscus.csv              # Meniscus tear labels (validation set)  
-│── valid.csv                       # Overall validation set metadata  
+│── train-acl.csv        # ACL tear labels (train set)
+│── train-abnormal.csv   # Abnormality labels (train set)
+│── train-meniscus.csv   # Meniscus tear labels (train set)
+│── train.csv            # Overall train set metadata
+│
+│── valid_acl.csv        # ACL tear labels (validation set)
+│── valid_abnormal.csv   # Abnormality labels (validation set)
+│── valid_meniscus.csv   # Meniscus tear labels (validation set)
+│── valid.csv            # Overall validation set metadata
 ```
 
+## CSV Files
+
+Each CSV file contains binary labels (0 or 1) for specific abnormalities detected in the MRI scans.
+
+### train.csv
+This file contains case IDs and paths to the MRI scans:
+
+| case |      axial        |      coronal        |       sagittal       |
+|------|-------------------|---------------------|----------------------|
+| 0    | train/axial/0.npy | train/coronal/0.npy | train/sagittal/0.npy |
+| 1    | train/axial/1.npy | train/coronal/1.npy | train/sagittal/1.npy |
+| 2    | train/axial/2.npy | train/coronal/2.npy | train/sagittal/2.npy |
+| 3    | train/axial/3.npy | train/coronal/3.npy | train/sagittal/3.npy |
+
+### train-abnormal.csv
+This file contains abnormality labels:
+
+| case | label |
+|------|-------|
+| 0    | 1     |
+| 1    | 0     |
+| 2    | 1     |
+| 3    | 0     |
+
+### train-acl.csv
+This file contains ACL tear labels:
+
+| case | label |
+|------|-------|
+| 0    | 0     |
+| 1    | 0     |
+| 2    | 1     |
+| 3    | 0     |
+
+### train-meniscus.csv
+This file contains meniscus tear labels:
+
+| case | label |
+|------|-------|
+| 0    | 1     |
+| 1    | 0     |
+| 2    | 0     |
+| 3    | 1     |
+
+## MRI Data Format
+
+Each .npy file contains a 3D volume representing an MRI scan with shape (slices, height, width), where:
+- The number of slices varies between scans
+- Height and width are typically 256×256 pixels
+
+## Data Statistics
+
+- Training set: 1,130 exams (1,130 × 3 planes = 3,390 series)
+- Validation set: 120 exams (120 × 3 planes = 360 series)
+- Tasks: ACL tear, meniscus tear, and general abnormality detection
+- Label distribution is approximately 25% positive cases for each task
+- 
 ## Execution
 To perform an experiment just run
 ```
