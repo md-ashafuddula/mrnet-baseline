@@ -217,6 +217,27 @@ This file contains meniscus tear labels:
 | 2    | 0     |
 | 3    | 1     |
 
+### train.csv
+
+```
+| image_no | abnormal | acl | meniscus |
+|----------|----------|-----|----------|
+| 0        | 1        | 0   | 0        |
+| 1        | 1        | 1   | 1        |
+| 2        | 1        | 0   | 0        |
+```
+
+### valid.csv
+
+```
+| image_no | abnormal | acl | meniscus |
+|----------|----------|-----|----------|
+| 1130     | 0        | 0   | 0        |
+| 1131     | 0        | 0   | 0        |
+| 1132     | 0        | 0   | 0        |
+| 1133     | 0        | 0   | 0        |
+```
+
 ## MRI Data Format
 
 Each .npy file contains a 3D volume representing an MRI scan with shape (slices, height, width), where:
